@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Professors</title>
+    <style>
+        /* Set default font family, size, and color for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Center the heading */
+        h1 {
+            text-align: center;
+
+        }
+        #title {
+            text-transform: uppercase;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: large;
+            color: #00ffc4;
+            font-weight: bolder;
+            position: fixed;
+            z-index: 2;
+            left: 10px;
+        }
+        #titleLink {
+            color: #00ffc4;
+            text-decoration: none;
+        }
+        li{
+            text-align: center;
+            margin: 0 auto;
+            padding-right: 40px;
+            color: #666666;
+        }
+        a{
+            text-align: center;
+            text-decoration: none;
+            color: #666666;
+        }
+
+        /* Style the search input */
+        #search-input {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Style the professors list */
+        #professors-list {
+            margin-top: 30px;
+            color: #666666;
+            font-size: 16px;
+            list-style-type: none;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <h1 id="title">
+        <a id="titleLink" class="link" href="../index.html">
+
+            TUJ Coding Club
+
+        </a>
+    </h1>
+</div>
+<h1>Search Professors</h1>
+<input type="text" id="search-input" placeholder="Search by name" oninput="searchProfessors()">
+
+<ul id="professors-list">
+    <li><a href=../PROFS/ericaadams.html>Erica Adams</a></li>
+    <li><a href=../PROFS/karinadmiraal.html>Karin Admiraal</a></li>
+    <li><a href=../PROFS/sungheeahn.html>Sunghee Ahn</a></li>
+    <li><a href=../PROFS/bethanyalling.html>Bethany Alling</a></li>
+    <li><a href=../PROFS/adaangel.html>Ada Angel</a></li>
+    <li><a href=../PROFS/seanarnold.html>Sean Arnold</a></li>
+    <li><a href=../PROFS/kunikoashizawa.html>Kuniko Ashizawa</a></li>
+    <li><a href=../PROFS/markazzopardi.html>Mark Azzopardi</a></li>
+    <li><a href=../PROFS/dennisbacani.html>Dennis Bacani</a></li>
+    <li><a href=../PROFS/trevorballance.html>Trevor Ballance</a></li>
+    <li><a href=../PROFS/brettabedard.html>Brett A Bedard</a></li>
+    <li><a href=../PROFS/haniyehbidadi.html>Haniyeh Bidadi</a></li>
+    <li><a href=../PROFS/laure-heleneboudier.html>Laure-Helene Boudier</a></li>
+    <li><a href=../PROFS/davidbroekema.html>David Broekema</a></li>
+    <li><a href=../PROFS/andrewbrown.html>Andrew Brown</a></li>
+    <li><a href=../PROFS/jamesd.j.brown.html>James D.J. Brown</a></li>
+    <li><a href=../PROFS/rockyburton.html>Rocky Burton</a></li>
+    <li><a href=../PROFS/ronaldcarr.html>Ronald Carr</a></li>
+    <li><a href=../PROFS/jeremys.chambers.html>Jeremy S. Chambers</a></li>
+    <li><a href=../PROFS/sungheecho.html>Sunghee Cho</a></li>
+    <li><a href=../PROFS/matthewchozick.html>Matthew Chozick</a></li>
+    <li><a href=../PROFS/grahamchristian.html>Graham Christian</a></li>
+    <li><a href=../PROFS/andronikichristodoulou.html>Androniki Christodoulou</a></li>
+    <li><a href=../PROFS/williamclark.html>William Clark</a></li>
+    <li><a href=../PROFS/kylecleveland.html>Kyle Cleveland</a></li>
+    <li><a href=../PROFS/michaelthomascucek.html>Michael Thomas Cucek</a></li>
+    <li><a href=../PROFS/michaelcucek.html>Michael Cucek</a></li>
+    <li><a href=../PROFS/marnicueno.html>Marni Cueno</a></li>
+    <li><a href=../PROFS/henrycurtley.html>Henry Curtley</a></li>
+    <li><a href=../PROFS/jonathanderr.html>Jonathan Derr</a></li>
+    <li><a href=../PROFS/stephenduran.html>Stephen Duran</a></li>
+    <li><a href=../PROFS/singhfaye.html>Singh Faye</a></li>
+    <li><a href=../PROFS/williamfeeney.html>William Feeney</a></li>
+    <li><a href=../PROFS/markfernelius.html>Mark Fernelius</a></li>
+    <li><a href=../PROFS/ericfirestone.html>Eric Firestone</a></li>
+    <li><a href=../PROFS/joaofonseca.html>Joao Fonseca</a></li>
+    <li><a href=../PROFS/markford.html>Mark Ford</a></li>
+    <li><a href=../PROFS/johnfoster.html>John Foster</a></li>
+    <li><a href=../PROFS/mikefu.html>Mike Fu</a></li>
+    <li><a href=../PROFS/shotafujii.html>Shota Fujii</a></li>
+    <li><a href=../PROFS/christopherfujiwara.html>Christopher Fujiwara</a></li>
+    <li><a href=../PROFS/francisfung.html>Francis Fung</a></li>
+    <li><a href=../PROFS/nicholasgiarratani.html>Nicholas Giarratani</a></li>
+    <li><a href=../PROFS/hazelgonzales.html>Hazel Gonzales</a></li>
+    <li><a href=../PROFS/prachigupta.html>Prachi Gupta</a></li>
+    <li><a href=../PROFS/erhanselcukhaciomeroglu.html>Erhan Selcuk Haciomeroglu</a></li>
+    <li><a href=../PROFS/aquileshadjislabarca.html>Aquiles Hadjis Labarca</a></li>
+    <li><a href=../PROFS/benoithardy-chartrand.html>Benoit Hardy-Chartrand</a></li>
+    <li><a href=../PROFS/berylhawkins.html>Beryl Hawkins</a></li>
+    <li><a href=../PROFS/ireneherrera.html>Irene Herrera</a></li>
+    <li><a href=../PROFS/masoncoehester.html>Mason Coe Hester</a></li>
+    <li><a href=../PROFS/shawnhiggins.html>Shawn Higgins</a></li>
+    <li><a href=../PROFS/yukohishiyama.html>Yuko Hishiyama</a></li>
+    <li><a href=../PROFS/maymayho.html>May May Ho</a></li>
+    <li><a href=../PROFS/irinaholca.html>Irina Holca</a></li>
+    <li><a href=../PROFS/akashihongo.html>Akashi Hongo</a></li>
+    <li><a href=../PROFS/kylehoover.html>Kyle Hoover</a></li>
+    <li><a href=../PROFS/sachikohoriguchi.html>Sachiko Horiguchi</a></li>
+    <li><a href=../PROFS/leonardhorton.html>Leonard Horton</a></li>
+    <li><a href=../PROFS/sarahhouse-liu.html>Sarah House-Liu</a></li>
+    <li><a href=../PROFS/colinhueston.html>Colin Hueston</a></li>
+    <li><a href=../PROFS/yoshikoichimura.html>Yoshiko Ichimura</a></li>
+    <li><a href=../PROFS/albertoiniguez.html>Alberto Iniguez</a></li>
+    <li><a href=../PROFS/sandyito.html>Sandy Ito</a></li>
+    <li><a href=../PROFS/terryjoyce.html>Terry Joyce</a></li>
+    <li><a href=../PROFS/yaekokabe.html>Yaeko Kabe</a></li>
+    <li><a href=../PROFS/hadygeorgekahy.html>Hady George Kahy</a></li>
+    <li><a href=../PROFS/riokaieda.html>Rio Kaieda</a></li>
+    <li><a href=../PROFS/masakikakizaki.html>Masaki Kakizaki</a></li>
+    <li><a href=../PROFS/priyakansal.html>Priya Kansal</a></li>
+    <li><a href=../PROFS/hanikaram.html>Hani Karam</a></li>
+    <li><a href=../PROFS/jamilkarim.html>Jamil Karim</a></li>
+    <li><a href=../PROFS/douglaskarsner.html>Douglas Karsner</a></li>
+    <li><a href=../PROFS/harukokato.html>Haruko Kato</a></li>
+    <li><a href=../PROFS/karinkeefe.html>Karin Keefe</a></li>
+    <li><a href=../PROFS/lawrencekieffer.html>Lawrence Kieffer</a></li>
+    <li><a href=../PROFS/jeffkingston.html>Jeff Kingston</a></li>
+    <li><a href=../PROFS/joelkirkham.html>Joel Kirkham</a></li>
+    <li><a href=../PROFS/tomokokiyama(murakami).html>Tomoko Kiyama (Murakami)</a></li>
+    <li><a href=../PROFS/kakokoshino.html>Kako Koshino</a></li>
+    <li><a href=../PROFS/takayukikubota.html>Takayuki Kubota</a></li>
+    <li><a href=../PROFS/jameslambiasi.html>James Lambiasi</a></li>
+    <li><a href=../PROFS/johna.lipartitojr..html>John A. Lipartito Jr.</a></li>
+    <li><a href=../PROFS/ianlynam.html>Ian Lynam</a></li>
+    <li><a href=../PROFS/deannamacdonald.html>Deanna MacDonald</a></li>
+    <li><a href=../PROFS/yoshimimachida.html>Yoshimi Machida</a></li>
+    <li><a href=../PROFS/zanemackin.html>Zane Mackin</a></li>
+    <li><a href=../PROFS/johnmaher.html>John Maher</a></li>
+    <li><a href=../PROFS/yukamatsuhashi.html>Yuka Matsuhashi</a></li>
+    <li><a href=../PROFS/tatsukimatsui.html>Tatsuki Matsui</a></li>
+    <li><a href=../PROFS/michaelmcgehee.html>Michael Mc Gehee</a></li>
+    <li><a href=../PROFS/johnathanmccaskill.html>Johnathan McCaskill</a></li>
+    <li><a href=../PROFS/eugeniamedrano.html>Eugenia Medrano</a></li>
+    <li><a href=../PROFS/thomasmeyer.html>Thomas Meyer</a></li>
+    <li><a href=../PROFS/shayelamian.html>Shayela Mian</a></li>
+    <li><a href=../PROFS/stevenmiller.html>Steven Miller</a></li>
+    <li><a href=../PROFS/estebanminoavila.html>Esteban Mino Avila</a></li>
+    <li><a href=../PROFS/soniaminoavila.html>Sonia Mino Avila</a></li>
+    <li><a href=../PROFS/shimpeimiyagawa.html>Shimpei Miyagawa</a></li>
+    <li><a href=../PROFS/johnmock.html>John Mock</a></li>
+    <li><a href=../PROFS/kenmoskowitz.html>Ken Moskowitz</a></li>
+    <li><a href=../PROFS/hiromimurakami.html>Hiromi Murakami</a></li>
+    <li><a href=../PROFS/fredmyers.html>Fred Myers</a></li>
+    <li><a href=../PROFS/paulnadeau.html>Paul Nadeau</a></li>
+    <li><a href=../PROFS/marikonagai.html>Mariko Nagai</a></li>
+    <li><a href=../PROFS/fusaenamba.html>Fusae Namba</a></li>
+    <li><a href=../PROFS/marconarducci.html>Marco Narducci</a></li>
+    <li><a href=../PROFS/makotonegishi.html>Makoto Negishi</a></li>
+    <li><a href=../PROFS/taronettleton.html>Taro Nettleton</a></li>
+    <li><a href=../PROFS/karlneubert.html>Karl Neubert</a></li>
+    <li><a href=../PROFS/chiekonumata.html>Chieko Numata</a></li>
+    <li><a href=../PROFS/samuelofori.html>Samuel Ofori</a></li>
+    <li><a href=../PROFS/chihookada.html>Chiho Okada</a></li>
+    <li><a href=../PROFS/jillianokamoto.html>Jillian Okamoto</a></li>
+    <li><a href=../PROFS/yukikooki.html>Yukiko Oki</a></li>
+    <li><a href=../PROFS/yumiokumura.html>Yumi Okumura</a></li>
+    <li><a href=../PROFS/keikoono.html>Keiko Ono</a></li>
+    <li><a href=../PROFS/ryokoosada.html>Ryoko Osada</a></li>
+    <li><a href=../PROFS/alonsooviedoceron.html>Alonso Oviedo Ceron</a></li>
+    <li><a href=../PROFS/christopherparham.html>Christopher Parham</a></li>
+    <li><a href=../PROFS/kyoheepark.html>Kyohee Park</a></li>
+    <li><a href=../PROFS/mariaisabelpedrazamorales.html>Maria Isabel Pedraza Morales</a></li>
+    <li><a href=../PROFS/ryanrashotte.html>Ryan Rashotte</a></li>
+    <li><a href=../PROFS/ashleyreed.html>Ashley Reed</a></li>
+    <li><a href=../PROFS/walterroberts.html>Walter Roberts</a></li>
+    <li><a href=../PROFS/patrickrosenkjar.html>Patrick Rosenkjar</a></li>
+    <li><a href=../PROFS/leeroser.html>Lee Roser</a></li>
+    <li><a href=../PROFS/sarajeanrossitto.html>Sarajean Rossitto</a></li>
+    <li><a href=../PROFS/louiserouse.html>Louise Rouse</a></li>
+    <li><a href=../PROFS/junkosaito.html>Junko Saito</a></li>
+    <li><a href=../PROFS/misakisaito.html>Misaki Saito</a></li>
+    <li><a href=../PROFS/kaorusakurai.html>Kaoru Sakurai</a></li>
+    <li><a href=../PROFS/susanasanchezperez.html>Susana Sanchez Perez</a></li>
+    <li><a href=../PROFS/kazuesasaki.html>Kazue Sasaki</a></li>
+    <li><a href=../PROFS/davidsatterwhite.html>David Satterwhite</a></li>
+    <li><a href=../PROFS/morganschulz.html>Morgan Schulz</a></li>
+    <li><a href=../PROFS/belaschweiger.html>Bela Schweiger</a></li>
+    <li><a href=../PROFS/jordancosekulovski.html>Jordanco Sekulovski</a></li>
+    <li><a href=../PROFS/karenseverns.html>Karen Severns</a></li>
+    <li><a href=../PROFS/marvinshigueitiuehara.html>Marvin Shigueiti Uehara</a></li>
+    <li><a href=../PROFS/masakoshimizu.html>Masako Shimizu</a></li>
+    <li><a href=../PROFS/davidsigaty.html>David Sigaty</a></li>
+    <li><a href=../PROFS/robertsinclair.html>Robert Sinclair</a></li>
+    <li><a href=../PROFS/dariuszskowronski.html>Dariusz Skowronski</a></li>
+    <li><a href=../PROFS/agustinspinetto.html>Agustin Spinetto</a></li>
+    <li><a href=../PROFS/williamsposato.html>William Sposato</a></li>
+    <li><a href=../PROFS/aristaiman.html>Ari Staiman</a></li>
+    <li><a href=../PROFS/irastevens.html>Ira Stevens</a></li>
+    <li><a href=../PROFS/dennisstromback.html>Dennis Stromback</a></li>
+    <li><a href=../PROFS/catherinesudo.html>Catherine Sudo</a></li>
+    <li><a href=../PROFS/shanshansun.html>Shan Shan Sun</a></li>
+    <li><a href=../PROFS/davidsussman.html>David Sussman</a></li>
+    <li><a href=../PROFS/williamj.swinton.html>William J. Swinton</a></li>
+    <li><a href=../PROFS/nobuyatakezawa.html>Nobuya Takezawa</a></li>
+    <li><a href=../PROFS/makototanaka.html>Makoto Tanaka</a></li>
+    <li><a href=../PROFS/yasukotaoka.html>Yasuko Taoka</a></li>
+    <li><a href=../PROFS/kasiatomaszynska.html>Kasia Tomaszynska</a></li>
+    <li><a href=../PROFS/fsigmundtopor.html>F Sigmund Topor</a></li>
+    <li><a href=../PROFS/nobukotoyoizumi.html>Nobuko Toyoizumi</a></li>
+    <li><a href=../PROFS/patricktsai.html>Patrick Tsai</a></li>
+    <li><a href=../PROFS/vasileiostserolas.html>Vasileios Tserolas</a></li>
+    <li><a href=../PROFS/mayutsuruya.html>Mayu Tsuruya</a></li>
+    <li><a href=../PROFS/colintyner.html>Colin Tyner</a></li>
+    <li><a href=../PROFS/yoshimivalentine.html>Yoshimi Valentine</a></li>
+    <li><a href=../PROFS/yukovanorman.html>Yuko Van Orman</a></li>
+    <li><a href=../PROFS/kristenwade.html>Kristen Wade</a></li>
+    <li><a href=../PROFS/yiwang.html>Yi Wang</a></li>
+    <li><a href=../PROFS/yukowatabe.html>Yuko Watabe</a></li>
+    <li><a href=../PROFS/shinyabwatanabe.html>Shinya B Watanabe</a></li>
+    <li><a href=../PROFS/shinyacwatanabe.html>Shinya C Watanabe</a></li>
+    <li><a href=../PROFS/darrylwharton-rigby.html>Darryl Wharton-Rigby</a></li>
+    <li><a href=../PROFS/kazumiwilds.html>Kazumi Wilds</a></li>
+    <li><a href=../PROFS/matthewwilliams.html>Matthew Williams</a></li>
+    <li><a href=../PROFS/mikewilliams.html>Mike Williams</a></li>
+    <li><a href=../PROFS/hollywoolbright.html>Holly Woolbright</a></li>
+    <li><a href=../PROFS/lewiswright.html>Lewis Wright</a></li>
+    <li><a href=../PROFS/weixu.html>Wei Xu</a></li>
+    <li><a href=../PROFS/naomiyamada.html>Naomi Yamada</a></li>
+    <li><a href=../PROFS/asakoyamaguchi.html>Asako Yamaguchi</a></li>
+    <li><a href=../PROFS/yukoyamamiya.html>Yuko Yamamiya</a></li>
+    <li><a href=../PROFS/zhaochengzeng.html>Zhaocheng Zeng</a></li>
+    <li><a href=../PROFS/suzik.zimmerman.html>Suzi K. Zimmerman</a></li>
+</ul>
+<script>
+    const searchInput = document.getElementById('search-input');
+    const professorsList = document.getElementById('professors-list');
+    const listItems = professorsList.getElementsByTagName('a');
+
+    function searchProfessors() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        for (let i = 0; i < listItems.length; i++) {
+            const listItem = listItems[i];
+            const name = listItem.innerHTML.toLowerCase().replaceAll(' ', '');
+
+            if (name.includes(searchTerm)) {
+                listItem.style.display = 'block';
+            } else {
+                listItem.style.display = 'none';
+            }
+        }
+    }</script>
+</body>
+</html>

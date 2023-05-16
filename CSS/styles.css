@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #18293e;
+    margin-bottom: 50px;
+}
+
+div {
+    color: #00ffc4;
+}
+
+.link {
+    color: #00ffc4;
+    text-decoration: none;
+}
+
+
+h1 {
+    text-transform: uppercase;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: large;
+    color: #00ffc4;
+    font-weight: bolder;
+    position: fixed;
+    z-index: 2;
+    left: 10px;
+}
+
+nav {
+    background-color: black;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.68;
+    z-index: 1;
+
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0; /*need to be centerd*/
+    height: 100%;
+}
+
+nav ul li {
+    margin: 0 15px;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: none;
+    font-family: "Arial", sans-serif;
+}
+
+nav ul li ul{
+
+    left: 0;
+    padding: 0;
+    margin: 0 15px;
+    width: 100%;
+    z-index: 2;
+}
+/*从上到下的结构全部要变*/
+.dropdown {
+    position: relative;
+    opacity: 0.75;
+}
+
+.dropdown-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    transition: height 0.6s;
+
+}
+
+.dropdown:hover {
+    opacity: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    width: 100vw;
+    height: 500px;
+
+}
+
+
+.listTitle{
+    color: dimgrey;
+    position: relative;
+    font-size: 12px;
+    left: 15%;
+    padding: 1.5rem;
+    display: block;
+}
+.listElement {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    left: 15%;
+    padding: 1.5rem;
+    display: block;
+    font-weight: bolder;
+}
+
+
+footer {
+    color: grey;
+    background-color: white;
+    width: 100%;
+    font-size: 6px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
