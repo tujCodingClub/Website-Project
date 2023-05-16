@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irina Holca</title>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* Optional: Set a specific height or use 100% to fill the parent's height */
+        }
+
+        .btn {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .comment{
+            border-color: #e7e7e7;
+            color: black;
+        }
+        .comment:hover {
+            background: #e7e7e7;
+        }
+
+        #title {
+            text-transform: uppercase;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: large;
+            color: #00ffc4;
+            font-weight: bolder;
+            position: fixed;
+            z-index: 2;
+            left: 10px;
+        }
+        #titleLink {
+            color: #00ffc4;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+        }
+
+         .modal {
+             display: none;
+             position: fixed;
+             z-index: 1;
+             left: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             overflow: auto;
+             background-color: rgba(0, 0, 0, 0.4);
+         }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* The actual submitComment */
+        .submitComment .submitMessage {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* submitComment arrow */
+        .submitComment .submitMessage::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the submitComment */
+        .submitComment .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the submitComment) */
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 id="title">
+        <a id="titleLink" class="link" href="../index.html">
+
+            TUJ Coding Club
+
+        </a>
+    </h1>
+</div>
+<h1>Irina Holca</h1>
+<p>Department: Asian Studies</p>
+<p>Title: Adjunct Professor</p>
+<!-- Add this form inside the button-container div -->
+<div class="button-container">
+
+</div>
+<div id="openCommentModal" class="button-container">
+    <button class="btn comment" type="submit">Comment Professor Irina Holca</button>
+</div>
+<div id="commentModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Comment Professor Irina Holca:</h2>
+        <form id="commentForm">
+            <label for="comment"></label>
+            <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+            <input class="submitComment" type="submit" value="Submit Comment" onclick="clickMessage()">
+<!--            <span class="submitMessage" id="myMessage">Submitted!</span>-->
+        </form>
+    </div>
+</div>
+
+
+
+<ul id="comments">
+    <!-- List items will be dynamically generated here -->
+</ul>
+
+</body>
+<script>
+    // function clickMessage() {
+    //     var myMessage = document.getElementById("myMessage");
+    //     myMessage.classList.toggle("show");
+    // }
+    const commentModal = document.getElementById("commentModal");
+    const openCommentModal = document.getElementById("openCommentModal");
+    const closeModal = document.getElementsByClassName("close")[0];
+
+    openCommentModal.onclick = function() {
+        commentModal.style.display = "block";
+    }
+
+    closeModal.onclick = function() {
+        commentModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target === commentModal) {
+            commentModal.style.display = "none";
+        }
+    }
+    document.getElementById('commentForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/api/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert('Comment submitted successfully');
+                event.target.reset();
+            } else {
+                const error = await response.json();
+                alert(`Error: ${error.error}`);
+            }
+        } catch (error) {
+            console.error('Error submitting comment:', error);
+            alert('Failed to submit comment');
+        }
+    });
+</script>
+
+</html>
+

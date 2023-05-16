@@ -1,0 +1,9 @@
+{
+  "name": "Web Development",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jspdf": "^2.5.1",
+    "puppeteer": "^19.7.2"
+  }
+}
